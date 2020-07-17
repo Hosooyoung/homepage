@@ -1,0 +1,585 @@
+<!doctype html>
+<html>
+ 	<head>
+           <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+         <script>
+-
+
+            $(document).ready(function(){
+                $('#btn_list').on('click',function(){
+                console.log("s");
+            $.ajax({    //이 버튼을 클릭하면 list를 요청해라 
+             url:'/list',
+            type:'post',//전부다 주는거기 때문에 data 필요없다. 
+     success:function(data){
+      $('#list').empty();
+      $(data).each(function(index,item){
+       $('#list').append('<tr>');
+       $('#list').append('<td>'+item.idx+'</td>');
+       
+       $('#list').append('<td>'+item.writer+'</td>');
+       $('#list').append('<td>'+item.content+'</td>');
+       $('#list').append('</tr>');
+
+      });  
+     }   
+
+
+    });
+   });
+  });      
+   $(document).ready(function(){
+    console.log("add");
+    $('#btn_add').on('click',function(){
+    var writer=$('#writer').val(); 
+    var content=$('#content').val(); 
+
+    
+     $.ajax({ url:'/add', type:'post', data:{writer:writer,content:content},
+      success:function(data){ alert(data+'님 추가'); 
+      $('#btn_list').trigger('click');
+      $('#writer').val(""); 
+      $('#content').val(""); 
+ } 
+}); 
+});
+});
+
+//////////////////////////////////////////////////////////////////////////////
+$(document).ready(function(){
+      $('#btn_list_1').on('click',function(){
+            $.ajax({    //이 버튼을 클릭하면 list를 요청해라 
+             url:'/list_1',
+            type:'post',//전부다 주는거기 때문에 data 필요없다. 
+     success:function(data){
+      $('#list1').empty();
+      $(data).each(function(index,item){
+       $('#list1').append('<tr>');
+       $('#list1').append('<td>'+item.idx+'</td>');
+       
+       $('#list1').append('<td>'+item.writer+'</td>');
+       $('#list1').append('<td>'+item.content+'</td>');
+       $('#list1').append('</tr>');
+
+      });  
+     }   
+    });
+   });
+  });      
+   $(document).ready(function(){
+    console.log("add");
+    $('#btn_add_1').on('click',function(){
+    var writer1=$('#writer1').val(); 
+    var content1=$('#content1').val(); 
+   
+    
+     $.ajax({ url:'/add_1', type:'post', data:{writer1:writer1,content1:content1},
+      success:function(data){ alert(data+'님 추가'); 
+      $('#btn_list_1').trigger('click');
+      $('#writer1').val(""); 
+      $('#content1').val(""); 
+ } 
+}); 
+});
+});
+
+//////////////////////////////////////////////////////////////////////////////
+$(document).ready(function(){
+      $('#btn_list_2').on('click',function(){
+            $.ajax({    //이 버튼을 클릭하면 list를 요청해라 
+             url:'/list_2',
+            type:'post',//전부다 주는거기 때문에 data 필요없다. 
+     success:function(data){
+      $('#list2').empty();
+      $(data).each(function(index,item){
+       $    ('#list2').append('<tr>');
+       $('#list2').append('<td>'+item.idx+'</td>');
+       
+       $('#list2').append('<td>'+item.writer+'</td>');
+       $('#list2').append('<td>'+item.content+'</td>');
+       $('#list2').append('</tr>');
+
+      });  
+     }   
+    }); 
+   });
+  });      
+   $(document).ready(function(){
+    console.log("add");
+    $('#btn_add_2').on('click',function(){
+    var writer2=$('#writer2').val(); 
+    var content2=$('#content2').val(); 
+    
+
+
+        
+     $.ajax({ url:'/add_2', type:'post', data:{writer2:writer2,content2:content2},
+      success:function(data){ alert(data+'님 추가'); 
+      $('#btn_list_2').trigger('click');
+      $('#writer2').val(""); 
+      $('#content2').val(""); 
+ } 
+}); 
+});
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function(){
+      $('#btn_list_3').on('click',function(){
+            $.ajax({    //이 버튼을 클릭하면 list를 요청해라 
+             url:'/list_3',
+            type:'post',//전부다 주는거기 때문에 data 필요없다. 
+     success:function(data){
+      $('#list3').empty();
+      $(data).each(function(index,item){
+       $('#list3').append('<tr>');
+       $('#list3').append('<td>'+item.idx+'</td>');
+       
+       $('#list3').append('<td>'+item.writer+'</td>');
+       $('#list3').append('<td>'+item.content+'</td>');
+       $('#list3').append('</tr>');
+
+      });  
+     }   
+    });
+   });
+  });      
+   $(document).ready(function(){
+    console.log("add");
+    $('#btn_add_3').on('click',function(){
+    var writer3=$('#writer3').val(); 
+    var content3=$('#content3').val(); 
+   
+    
+     $.ajax({ url:'/add_3', type:'post', data:{writer3:writer3,content3:content3},
+      success:function(data){ alert(data+'님 추가'); 
+      $('#btn_list_3').trigger('click');
+      $('#writer3').val(""); 
+      $('#content3').val(""); 
+ } 
+}); 
+});
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////
+    $(function (){ 
+        $("#button_next").click(function (){ 
+            $("#toggle").toggle(); 
+        });
+         });
+      $(function (){ 
+        $("#16to").click(function (){ 
+            $("#toggle99").toggle(); 
+        });
+         });
+
+  
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+            $(document).ready(function(){
+                $('#btn_list_com').on('click',function(){
+                console.log("s");
+            $.ajax({    //이 버튼을 클릭하면 list를 요청해라 
+             url:'/list_com',
+            type:'post',//전부다 주는거기 때문에 data 필요없다. 
+     success:function(data){
+    //  $('#list_com').empty();
+      $('#list_com').empty();
+       
+      $(data).each(function(index,item){
+       $('#list_com').append('<tr>');
+       $('#list_com').append('<td id="title_click">'+item.title+'</td>');
+
+       //<div id="toggle_2" style="display :none;">  
+       $('#list_com').append('<td>'+item.writer+'</td>');
+       $('#list_com').append('<td>'+item.regdate+'</td>');
+      // $('#list_com').append('<td>'+item.hit+'</td>');
+       $('#list_com').append('</tr>');
+
+      });  
+     }   
+    });
+   });
+  });      
+   $(document).ready(function(){
+    console.log("add");
+    $('#btn_add_com').on('click',function(){
+    var writer_com=$('#writer_com').val(); 
+    var content_com=$('#content_com').val(); 
+    var title_com=$('#title_com').val(); 
+
+    
+     $.ajax({ url:'/add_com', type:'post', data:{title_com:title_com,writer_com:writer_com,content_com:content_com},
+      success:function(data){ alert(data+'님 추가'); 
+      $("#toggle_1").toggle();
+      $('#btn_list_com').trigger('click');
+      
+      $('#writer_com').val(""); 
+      $('#title_com').val(""); 
+      
+      $('#content_com').val(""); 
+ } 
+}); 
+});
+});
+///////////////////////////////////////////////////////////////////////////////////////////
+ $(document).ready(function (){ 
+        $("#write").click(function (){ 
+            $("#toggle_1").toggle(); 
+        }); 
+    });
+       //////////////////////////////////   
+  
+         $(document).ready(function(){
+          $(document).on("click","#title_click",function(event){
+
+             var title_click=$(this).text();
+             var title_writer=$(this).next().text();
+              
+ //        alert('gg'+title_click);
+   //      alert('gg'+title_writer);
+///////////////////////////////////////
+  ///////////////////////////////////////////
+    
+                 $.post('/show', {title_click:title_click,title_writer:title_writer},
+                    function(data){ 
+        //alert(data); 
+      $("#toggle_3").empty();
+                        $(data).each(function(index,item){
+      
+         //          
+                                    $('#toggle_3').append('<table>');
+                                    $('#toggle_3').append('<tr>');
+                                   $('#toggle_3').append('<th>번호</th>');
+                                      $('#toggle_3').append('<td>'+item.idx+'</td>');
+                                    $('#toggle_3').append('<th>글쓴이</th>');
+                                   $('#toggle_3').append('<td>'+item.writer+'</td>');
+                                 $('#toggle_3').append('</tr>');
+                                 $('#toggle_3').append('<tr>');
+                                    $('#toggle_3').append('<th>제목</th>');
+                                    $('#toggle_3').append('<td colspan="5">'+item.title+'</td>');
+                                    $('#toggle_3').append('</tr>');
+                                    $('#toggle_3').append('<tr>');
+                                    $('#toggle_3').append('</tr>');
+                                    $('#toggle_3').append('<tr>');
+                                    $('#toggle_3').append('<td colspan="6" height="400">'+item.content+'</td>');
+                                    $('#toggle_3').append('</tr>');
+                                 $('#toggle_3').append('<tr>');
+                                  $('#toggle_3').append('<td colspan="6">');
+                                 $('#toggle_3').append('<a href="/champs_menu5.html">목록</a>');
+                                    $('#toggle_3').append('</td>');
+                                 $('#toggle_3').append('</tr>');
+                                    $('#toggle_3').append('</table>');
+                    // 동적으로 여러 태그가 생성된 경우라면 이런식으로 클릭된 객체를 this 키워드를 이용해서 잡아올 수 있다.
+ $("#toggle_3").toggle();
+               }); 
+ 
+  //        
+               // $("#toggle_3").empty(); 
+       
+       });
+       
+         });
+          });
+      //});
+window.onload = function () {
+  $("#btn_list_com").trigger("click");
+}
+////////////////////////////////////////
+</script>
+
+
+		<meta chrset = "utf-8"/>
+		<style type="text/css">
+      body {
+    height:100%;
+         background: url('wall2.jpg');
+         background-repeat: repeat;
+         background-size: 100% 50%;
+    text-align: left;
+        color: #FFF;
+        /*width: 1500px;
+        height: 650px;*/
+       }
+
+        .myButton {
+          box-shadow:inset 0px 1px 0px 0px #97c4fe;
+          background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+          background-color:#3d94f6;
+          border-radius:6px;
+          border:1px solid #337fed;
+          display:inline-block;
+          cursor:pointer;
+          color:#ffffff;
+          font-family:Arial;
+          font-size:15px;
+          font-weight:bold;
+         padding:6px 24px;
+         text-decoration:none;
+         text-shadow:0px 1px 0px #1570cd;
+}
+.myButton:hover {
+  background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color:#1e62d0;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+		header, footer, nav, aside, section-a {
+        border: 0px solid #999;
+        margin: 0px;
+        padding: 0px;
+    	}
+    	header {
+        height: 200px;
+        background-color: transparent;
+    	}
+    	table {
+        width: 55%;
+      }
+      table, th, td {
+        border: 1px solid #bcbcbc;
+      }
+      div-a,div-b {     
+        float: left;
+        }
+      .sub_news,.sub_news th,.sub_news td{border:0;}
+      .sub_news a{color: #383838;text-decoration: :none;}
+      .sub_news{width: 100%;border-bottom: 1px solid #999;color: #666; font-size:12px;}
+      .sub_news caption{display: none}
+      .sub_news th{padding:5px 0 6px; border-top: solid 1px #999;border-bottom:solid 1px #b2b2b2;background-color: #f1f1f4;color:#333; font-weight: bold;line-height: 20px;vertical-align: top;}
+      .sub_news td {padding: 8px 0 9px; border-bottom: solid 1px #d2d2d2;text-align: center;line-height: 18px;}
+      .sub_news.date,.sub_news.hit{padding: 0;font-family: Tahoma;font-size: 11px;line-height: normal}
+      .sub_news.title{text-align: left;padding-left: :15px;font-size:13px; }
+      .sub_news.title .pic,.sub_news.title.new{margin: 0 0 2px;vertical-align: middle }
+      .sub_news.title a.comment{padding: 0; background:none;color:#f00;font-size: 12px;font-weight: bold}
+      .sub_news tr.reply .title a{padding-left: 16px;background:url(ic_reply.png) 0 1px no-repeat;}
+     
+		</style>
+	</head>
+  <body>
+    <header style=" font: normal bolder 3em/1em normal, normal ; color: white;">
+      <a href="http://localhost:8888/ucl.html">       
+      <img src="banner_1.png" width="1520" height="200">
+          </a>  
+        </header>
+        
+    <div-a>
+    <font size="6">
+
+    <p style="background-color: black; font-size: 3;color: white">Highlights</p>
+    </font>
+    <div style="overflow:scroll; width:700px; height:500px; padding:10px; background-color:white;  color:black;">
+    <p>18/19 UCL final 리버풀 vs 토트넘</p>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/zIlwMVkeJ5E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br></br>
+    <table border="1">
+  <thead>
+   <tr>
+    <th width="100">글쓴이</th>
+    <th width="400">내용</th>
+     </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td><input type="writer" id="writer" style ="width:100px;"></td>
+    <td ><input type="content" id="content"  style="width:400px;" ></td>
+    <td ><button id="btn_add" style="width:100px;">댓글등록</button></td>
+       </tr>
+  </tbody>
+ </table>
+ <button id="btn_list">댓글목록</button>
+ <table border="1">
+  <thead>
+  <tr>
+   <th></th>
+   <th width="100">writer</th>
+   <th width="500">content</th>
+  </tr>
+  </thead>
+  <tbody id="list">
+  </tbody>
+ </table>
+     <p>2018-2019 준결승전- 안필드의 기적!!!(바르셀로나 vs 리버풀 2차전) </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ik-DhHJM8eo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br></br>
+      <table border="1">
+  <thead>
+   <tr>
+    <th width="100">글쓴이</th>
+    <th width="400">내용</th>
+     </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td><input type="writer1" id="writer1" style ="width:100px;"></td>
+    <td ><input type="content1" id="content1"  style="width:400px;" ></td>
+    <td ><button id="btn_add_1" style="width:100px;">댓글등록</button></td>
+       </tr>
+  </tbody>
+ </table>
+ <button id="btn_list_1">댓글목록</button>
+ <table border="1">
+  <thead>
+  <tr>
+   <th></th>
+   <th width="200">writer</th>
+   <th width="500">content</th>
+  </tr>
+  </thead>
+  <tbody id="list1">
+  </tbody>
+ </table>
+    </div>  
+    <font size="6">
+    <p style="background-color: black; font-size: 3;color: white">Funny Champs</p>
+    </font>
+    <div style="overflow:scroll; width:700px; height:600px; padding:10px; background-color:white;  color:black;">
+    <p>챔피언스 리그에 대하여</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/n5n4SehRhUY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <br></br>
+      <table border="1">
+  <thead>
+   <tr>
+    <th width="100">글쓴이</th>
+    <th width="400">내용</th>
+     </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td><input type="writer2" id="writer2" style ="width:100px;"></td>
+    <td ><input type="content2" id="content2"  style="width:400px;" ></td>
+    <td ><button id="btn_add_2" style="width:100px;">댓글등록</button></td>
+       </tr>
+  </tbody>
+ </table>
+ <button id="btn_list_2">댓글목록</button>
+ <table border="1">
+  <thead>
+  <tr>
+   <th></th>
+   <th width="200">writer</th>
+   <th width="500">content</th>
+  </tr>
+  </thead>
+  <tbody id="list2">
+  </tbody>
+ </table>
+    </div>
+    <font size="6">
+
+    <p style="background-color: black; font-size: 3;color: white">Team Tactics</p>
+    </font>
+    <div style="overflow:scroll; width:700px; height:600px; padding:10px; background-color:white; color:black;">
+    <p>램파드의 파란돌풍! 챌시의 전술변화</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/peeY89Kjhb0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <br></br>
+       <table border="1">
+  <thead>
+   <tr>
+    <th width="100">글쓴이</th>
+    <th width="400">내용</th>
+     </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td><input type="writer3" id="writer3" style ="width:100px;"></td>
+    <td ><input type="content3" id="content3"  style="width:400px;" ></td>
+    <td ><button id="btn_add_3" style="width:100px;">댓글등록</button></td>
+       </tr>
+  </tbody>
+ </table>
+ <button id="btn_list_3">댓글목록</button>
+ <table border="1">
+  <thead>
+  <tr>
+   <th></th>
+   <th width="200">writer</th>
+   <th width="500">content</th>
+  </tr>
+  </thead>
+  <tbody id="list3">
+  </tbody>
+ </table>
+   
+    </div>
+</div-a>
+    <div-b style="margin-left: 50px;">
+        <font size="6">
+        <p style="background-color: black; font-size: 3;color: white">Community</p>
+        <font size="4">
+        <button id="button_next">다음 경기일정</button></br><button id="16to">16강 토너먼트</button>
+         <div id="toggle" style="display :none;">
+         <img src="next_1.jpg" width="300" height="100">
+         <img src="next_2.jpg" width="300" height="100">
+         <p></p>
+         <img src="next_3.jpg" width="300" height="100">
+         <img src="next_4.jpg" width="300" height="100">
+         </div>
+         <div id="toggle99" style="display :none;">
+         <img src="16tor.jpg" width="400" height="400">
+         </div>
+         <p></p>
+         
+         <button id="write">글쓰기</button>
+         <div id="toggle_1" style="display :none;">
+        <br>제목</br>
+         <td ><input type="title_com" id="title_com" style="width:400px;height:50px;"></td>
+        <br>글쓴이</br>
+         <th ><input type="writer_com" id="writer_com" style="width:100px;height:50px;"></td>
+        <br>내용</br>
+         <td ><input type="content_com" id="content_com" style="width:400px;height:300px;"></td>
+        <p></p>
+        <td><button id="btn_add_com" >게시글등록</button></td>
+    
+         </div>
+       
+         <button id="btn_list_com"></button><p></p>
+         <div id="toggle_3" style="display :none; background-color: white; color: black;">
+         
+
+        </div>
+
+         <div style="overflow:scroll; width:700px; height:600px; padding:10px; background-color:white;">
+         <table class ="sub_news" border ="1" cellspacing="0" summary="글제목 리스트">
+         <caption>게시판 리스트</caption>
+         <colgroup>
+             <col>
+             <col width="110">
+             <col width="100">
+             <col width="80">
+         </colgroup>   
+        <thead>
+            <tr>
+                <th scope ="col" width="400">제목</th>
+                <th scope ="col" >글쓴이</th>
+                <th scope ="col">날짜</th>
+                <!--<th scope ="col">조회수</th>-->
+            </tr>
+        </thead>
+        <tbody>
+           <!-- 
+           <tr>
+                <td class="title" >
+                    <a href="#"> 제목 들어가는 부분</a>
+                    <a class="comment" href="#"></a> 
+                    </td>
+                    <td class="name">글쓴이 이름</td>
+                    <td class="date">2019/10/07</td>
+                    <td class="hit">13</td>
+                </tr>
+                <tr class="reply">
+                    <td class="title" style="padding-left: 30px;">
+                        <a href="#">답글</a>
+                    </td>
+                    <td class="name">admin</td>
+                    <td class="name">2019/10/05</td>
+                    <td class="hit">9</td>
+                </tr>
+            --><tbody id="list_com">
+  
+               </tbody>
+               </table> 
+                </div>     
+        </tbody>
+    </div-b>
+  </body>
